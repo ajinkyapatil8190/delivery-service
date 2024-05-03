@@ -442,6 +442,12 @@ def replicate_issue(
         ):
             return gci._label_licenses
 
+        elif (
+            finding_type == dso.model.Datatype.MALWARE
+            and finding_source == dso.model.Datasource.CLAMAV
+        ):
+            return gci._label_malware
+
         else:
             raise NotImplementedError(f'{finding_type=} is not supported for {finding_source=}')
 
